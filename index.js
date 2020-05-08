@@ -28,9 +28,15 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
+ * Counter1 creates one count and then restarts back at 1, Counter2 keeps adding count to the count allowing for a bigger number then 1.
+ * 
  * 2. Which of the two uses a closure? How can you tell?
  * 
+ * counter1 uses closure because it has teh counter1 = counterMaker()
+ * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
+ * 
+ * Counter1 would be good for a onetime use while the second one would be good te be used over and over again. 
  *
 */
 
@@ -44,6 +50,8 @@ function counterMaker() {
 
 const counter1 = counterMaker();
 
+
+
 // counter2 code
 let count = 0;
 
@@ -56,11 +64,12 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
+function inning(){
+  return Math.floor(Math.random() * 3);
 
-    /*Code Here*/
+};
 
-}
+
 
 /* Task 3: finalScore()
 
@@ -76,11 +85,24 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
+function finalScore(cb, innings){
+  let homeScore = [];
+  let awayScore = [];
+  function finalHomeScore() {homeScore.reduce((acc,item) => {
+    return acc + item; 
+  });
+  }
+  function finalAwayScore()  {awayScore.reduce((acc,item) => {
+    return acc + item; 
+  });
+  }
+  for (i = 0; i < innings; i++){
+    homeScore.push(cb);
+    awayScore.push(cb);
+  }
+  return finalHomeScore();
 
-  /*Code Here*/
-
-}
+};
 
 /* Task 4: 
 
