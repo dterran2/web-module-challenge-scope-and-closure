@@ -86,24 +86,16 @@ finalScore(inning, 9) might return:
 */ 
 
 function finalScore(cb, innings){
-  let homeScore = [];
-  let awayScore = [];
-  function finalHomeScore() {homeScore.reduce((acc,item) => {
-    return acc + item; 
-  });
-  }
-  function finalAwayScore()  {awayScore.reduce((acc,item) => {
-    return acc + item; 
-  });
-  }
-  for (i = 0; i < innings; i++){
-    homeScore.push(cb);
-    awayScore.push(cb);
-  }
-  return finalHomeScore();
+  let score = { 'Home' : 0, 'Away' : 0,}
 
+  for (i = 0; i < innings; i++){
+    score['Home'] += cb();
+    score['Away'] += cb();
+  }
+  return score;
 };
 
+console.log(finalScore(inning, 9));
 /* Task 4: 
 
 Create a function called `scoreboard` that accepts the following parameters: 
@@ -125,8 +117,14 @@ and returns the score at each pont in the game, like so:
 
 Final Score: 6 - 10 */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(cb, innings) {
+  let score = { 'Home' : 0, 'Away' : 0,}
+
+  for (i = 0; i < innings; i++){
+    score['Home'] += cb();
+    score['Away'] += cb();
+  }
+  
 }
 
 
