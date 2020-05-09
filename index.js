@@ -124,7 +124,22 @@ function scoreboard(cb, innings) {
     score['Home'] += cb();
     score['Away'] += cb();
   }
-  
-}
+  let scoreArray = [];
 
+  for (let i = 1; i <= innings; i++) {
+    score['Home'] += cb();
+    score['Away'] += cb();
+    if (i === 1) {
+      scoreArray.push(`1st inning: ${score['Home']} - ${score['Away']}`);
+    }else if (i === 2) {
+    scoreArray.push( `2nd inning: ${score['Home']} - ${score['Away']}`);
+    }else if (i === 3) {
+    scoreArray.push( `3rd inning: ${score['Home']} - ${score['Away']}`);
+    }else {
+      scoreArray.push( `${i}th inning: ${score['Home']} - ${score['Away']}`);
+    }
+  }
+  scoreArray.push(`Final Score: ${score['Home']} - ${score['Away']}`);
+  return scoreArray;
+}
 
